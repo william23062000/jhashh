@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>¿Quieres ser mi novia?</title>
+  <style>
+    body {
+      background-color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #bear {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 2em;
+      color: #333;
+    }
+    .button-container {
+      margin-top: 30px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 10px;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    #yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+    #no {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <img id="bear" src="https://i.imgur.com/QN2YbYh.png" alt="Osito tierno" />
+  <h1>¿Quieres ser mi novia?</h1>
+
+  <div class="button-container">
+    <button id="yes">Sí</button>
+    <button id="no">No</button>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+
+    const noTexts = [
+      "¿Seguro que no?",
+      "¿De verdad no?",
+      "¿Ni un poquito?",
+      "¿Estás segura?",
+      "Piénsalo bien...",
+      "¿Y si te arrepientes?"
+    ];
+
+    let yesFontSize = 20;
+    let noClickCount = 0;
+
+    noBtn.addEventListener("click", () => {
+      // Aumenta el tamaño del botón "Sí"
+      yesFontSize += 5;
+      yesBtn.style.fontSize = yesFontSize + "px";
+
+      // Cambia el texto del botón "No"
+      const randomIndex = Math.floor(Math.random() * noTexts.length);
+      noBtn.textContent = noTexts[randomIndex];
+    });
+
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <img id="bear" src="https://i.imgur.com/QN2YbYh.png" alt="Osito tierno" />
+        <h1>¡Sabía que dirías que sí!</h1>
+        <p style="font-size:24px;">Te quiero mucho.</p>
+      `;
+    });
+  </script>
+</body>
+</html>
